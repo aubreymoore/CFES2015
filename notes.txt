@@ -1,0 +1,10 @@
+Very helpful for learning git/github:
+http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1
+
+echo "# CFES2015" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/aubreymoore/CFES2015.git
+git push -u origin master
+
