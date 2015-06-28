@@ -1,3 +1,41 @@
+% Notes for Assembling This Document
+
+% This tex script sources data from two external files:
+% aubrey.bib
+% blog-table.tex
+
+% aubrey.bib
+%
+% This file contains all pubs in which I am an author.
+% To make this file:
+% Go to http://guaminsects.net/anr/biblio/author/357
+% Click on the bibtex download link.
+% Save the file as aubrey.bib in the same directory as this tex file.
+%
+% The biblatex package uses keywords to build reference lists by filtering
+% on biblio keywords as follows.
+% Note that only biblio nodes with keyword=cfes2015 will be used.
+% ( Maybe there is a way to filter by year in URL. Should be investigated. )
+% 
+%\section{Refereed Scientific Journal Articles}
+%\printbibliography[heading=none, keyword=cfes2015, keyword=journal]
+%
+%\section{Presentations at Professional Meetings}
+%\printbibliography[heading=none, keyword=cfes2015, keyword=presentation]
+%
+%\section{Technical Reports Documenting Applied Research in Support of the
+%Guam Coconut Rhinoceros Beetle Project}
+%\printbibliography[heading=none, keyword=cfes2015, keyword=crbtechreport]
+%
+%\section{Guam New Invasive Species Alerts} 
+%\printbibliography[heading=none, keyword=cfes2015, keyword=gisa]
+
+% blog-table.tex
+%
+% This file is a longtable containing links to allm y public blogs on 
+% guaminsects.net/anr
+% To generate this file run the IPython Notebook, blog_table.ipynb
+
 \documentclass[12pt,oneside,english]{scrbook}
 \usepackage[]{graphicx}
 \usepackage[]{color}
@@ -20,7 +58,7 @@
 \usepackage{colortbl}
 \usepackage{ragged2e}
 \usepackage{verbatim}
-\usepackage[pyfuture=none]{pythontex}  
+%\usepackage[pyfuture=none]{pythontex}  
 
 % The following preamble allows me to use biblatex to generate
 % multiple reference sections using keyword filters
@@ -43,7 +81,7 @@
   colorlinks   = true, %Colours links instead of ugly boxes
   urlcolor     = blue, %Colour for external hyperlinks
   linkcolor    = blue, %Colour of internal links
-  citecolor    = red   %Colour of citations
+  citecolor    = blue  %Colour of citations
 }
 
 % The following two lines prevent long urls from extending
@@ -51,6 +89,7 @@
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000}
 
+\usepackage{todonotes}
 
 \begin{document}
 
@@ -59,20 +98,19 @@
 %create_longtable()
 %\end{pycode}
 
-\title{CFES 2015}
+\title{Comprehensive Faculty Evaluation System Report 2015}
 \author{Aubrey Moore, Ph.D.\\
 Associate Professor / Extension Entomologist}
 \maketitle
 
 I was hired by the University of Guam on October 1, 2003 under a limited-term,
 split appointment (50\% extension and 50\% research). On June 26,
-2008, I started a tenure-track appointment as extension entomologist
-with the academic rank of Assistant Professor. I am a faculty member
+2008, I started a tenure-track appointment as extension entomologist (100\% extension)
+with the academic rank of Assistant Professor. I work in the Agriculture and Naturals Resources Unit of the University of Guam Cooperative Extension Service. I am also a faculty member
 of the Environmental Science Graduate Program and a member of the
 Western Pacific Tropical Research Center. At the end of the 2012 fall
 term I applied for tenure and promotion and received both.
 
-This report documents my activities from June 2014 through the present.
 My current faculty role allocation is as follows:
 \begin{itemize}
 	\item 51\% Extension and Community Activities 
@@ -80,20 +118,18 @@ My current faculty role allocation is as follows:
 	\item 15\% University and Community Service
 \end{itemize}
 
+\vfill
 \textbf{Note to Reader:}
 
-This report is available as an electronic document in PDF format on
-my website at \url{http://guaminsects.net/anr/content/cfes-2015-report-aubrey-moore}.
-Because this is not a public document, you will need to identify yourself
-to gain access by entering user name: \textbf{UogAdministrator} and
-password: \textbf{let\_me\_in}. 
+This report is available as an electronic document, in PDF format, which can
+be downloaded from \url{http://guaminsects.net/doc/MooreCFES2015.pdf}. If you are reading the PDF version of the report, you will be able to follow hypertext links to documents I have referenced. 
 
-If you are reading the PDF version of the report, you will be able
-to follow hypertext links to documents I have referenced. 
+The \LaTeX\ script used to generate this document 
+is available at \url{https://github.com/aubreymoore/CFES2015}.
 
 \tableofcontents{}
 
-\listoftables
+%\listoftables
 
 \chapter{Extension and Community Activities}
 
@@ -107,9 +143,34 @@ a phone call or a visit by the client to the ANR office. In many cases
 identification and pest control recommendations require a site visit
 by me and/or extension associates to collect samples and define the
 problem. The number of extension calls requiring my assistance averages
-approximately three per day. 
+approximately three per day.
+
+I am not well trained as an insect taxonomist. To improve my skills, I attend 
+insect identification workshops whenever an opportunity occurs. In May, 2014,
+the US Forest Service sponsored my attendance at the Ambrosia and Bark Beetle
+Academy at the University of Florida.
 
 \subsection{Detection and Documentation of Invasive Species}
+
+As with any other tropical island, Guam is extremely susceptible to environmental and economic damage by invasive species. Despite this fact, Guam's biosecurity is very weak and invasive species, many of them insects, are arriving at unprecedented rates. Bioinvasions are grossly under-reported for several reasons:
+\begin{enumerate}
+\item Professional capacity is lacking. Twenty years ago, there were 9 PhD level entomologists practising in Micronesia. Only 3 remain (Moore, Miller, Campbell), despite an increased workload largely due to arrival of the cycad scale, coconut rhinoceros beetle and little fire ant and other invasive species of insects. UOG typically has 4 entomologists. We now have 2.
+\item We suffer from the \emph{taxonomic impediment}. The three remaining PhD level entomologists are generalists without the skills and resources for species determination. Timely and accurate species determination is a necessary first step in response to a new pest invasion.
+\item There is no ongoing biological survey of Guam with the goal of establishing a baseline biodiversity inventory and detecting newly arrived invasive species. Unfortunately, CAPS surveys are usually focused on demonstrating absence of specific agricultural pests rather than detecting new invasions.
+\item Even when invasive species are detected and properly identified, first island records are not documented and the information is not published in the scientific press. 
+\end{enumerate}
+
+In an attempt to improve this situation, I have set myself up as a \emph{registrar} for new insect species arriving on Guam with the intent of properly documenting the ongoing bioinvasion of Guam. The procedure I am trying to establish is:
+\begin{enumerate}
+\item First detector sends me a digital image and/or specimen
+\item{Specimens are prepared and accessioned into the UOG insect collection}
+\item{A fact sheet is prepared using a template for Guam New Invasive Species Alerts}
+\item{The fact sheet is distributed to a list of stakeholders}
+\item{Taxonomic assistance is obtained for an authoritative species determination.}
+\item A journal article is prepared and published in a refereed scientific journal. At this point the new geographical distribution data become available to the scientific community via the Global Biodiversity Facility (GBIF).
+\end{enumerate}
+
+Although I have been able to generate about a dozen invasive species alerts over the past year (Section \ref{Guam New Invasive Species Alerts}), only one new island record has made it into a peer reviewed journal (\cite{Moore_Watson_Bamba_2014}).
 
 \subsection{Insect Identification Service for USDA-APHIS / Guam Customs and Quarantine
 Agency}
@@ -118,14 +179,11 @@ I am often called upon to identify insect specimens intercepted the
 Guam Customs and Quarantine Agency. USDA-APHIS has certified me for
 this service and has provided a very official looking badge to impress
 people with. (However, it is not quite as impressive as Dr. Millers
-bright red badge for getting onto the airport runways.)
+bright red badge for getting onto the airport runways.) 
 
-\subsection{Impediments}
-\begin{itemize}
-\item Taxonomic skills.
-\item Lab facilities.
-\item Microscope.
-\end{itemize}
+USDA-APHIS has recently rewarded me for this service. In response to
+my 2015 Farm Bill suggestion, the agency kindly equipped me with two professional quality microscopes which will facilitate identification 
+of smaller insects and slide-mounted specimens.
 
 \section{University of Guam Insect Collection}
 
@@ -146,10 +204,10 @@ images and literature references. I built a digital catalog for the
 collection is using the BioLink Biodiversity Information Management
 System from CSIRO, Australia. The catalog currently contains 29,200
 specimen records. BioLink is currently being redeveloped as an open
-source project (http://code.google.com/p/biolink/). In am an active
+source project (\url{http://code.google.com/p/biolink/}). In am an active
 collaborator in this project. In July 2012 I published an article
 entitled \emph{Hosting a Biolink Database in the Amazon Web Services
-Cloud (EC2)} on the project's wiki (http://code.google.com/p/biolink/wiki/BioLinkEC2).
+Cloud (EC2)} on the project's wiki ( \url{http://code.google.com/p/biolink/wiki/BioLinkEC2}).
 
 I have built and evaluated two websites for serving information on
 Micronesian insect biodiversity, including specimen level data from
@@ -158,13 +216,13 @@ called LifeDesk provided the Encyclopedia of Life Project and the
 other is a similar template called ScratchPads provided by the Museum
 of Natural History in London. I am honored to have been selected as
 an advocate for ScratchPads as part of the project's Ambassadors program
-(http://scratchpads.eu/locate-scratchpad-ambassadors). Further information
+(\url{http://scratchpads.eu/locate-scratchpad-ambassadors}). Further information
 on my websites is provided in the Creative/Scholarly Activities section
 (\ref{sec:Web-Sites-Designed}). 
 
 In March 2014 I travelled to Honolulu to attend the Biodiversity Collections
 Digitization in the Pacific workshop sponsored by the Integrated Digitized
-Biocollections (IDigBio). I made an oral presentation entitled \href{Evaluation of a Scratchpad Template as an https://www.idigbio.org/wiki/images/a/aa/Scratchpads_iDigBio-part1.pdf}{Evaluation of a Scratchpad Template as an Online Database for the University of Guam Insect Colletion}at
+Biocollections (IDigBio). I made an oral presentation entitled \href{ https://www.idigbio.org/wiki/images/a/aa/Scratchpads_iDigBio-part1.pdf}{Evaluation of a Scratchpad Template as an Online Database for the University of Guam Insect Colletion} at
 this workshop. 
 
 In May 2014 I met with Dr. Bob Foottit at the Canadian National Insect
@@ -217,22 +275,17 @@ Eradication project are detailed in the Regional Collaboration section
 
 \subsection{Activities:}
 \begin{enumerate}
-\item \textbf{Biweekly Planning Meetings.} This project is run as an incident
-command system. I attend biweekly planning meetings as a program manager.
-\item \textbf{Conference Calls.} These teleconferences are with stakeholders
-and advisers in USDA APHIS and USDA Forest Service. These agencies
-are funding the project. Until recently calls were biweekly. They
-are now monthly.
-\item \textbf{Grant Writing. }During the past 2 years, the Guam CRB Eradication
-Project has been almost entirely funded from 12 grants for which I
-wrote proposals and act as principal investigator. These grants are
-listed in the Creative / Scholarly Activity section.
-\item \textbf{Report Writing.} All grants supporting the Guam CRB Eradication
-Project require regular reporting. 
+
+\item \textbf{Monthly Conference Calls.} These teleconferences are with stakeholders, collaborators,
+and advisers in USDA APHIS and USDA Forest Service. 
+
 \item \textbf{Project Websites. }I have endeavored to share and archive
 data and information associated with the Guam CRB Eradication Project
 on-line. Prior to May 2009, I used a wiki site at \url{http://www.guaminsects.net/uogces/kbwiki/index.php?title=Oryctes_rhinoceros}.
 Afterwards, I used a Drupal site at \url{http://www.guaminsects.net/anr/category/miscellaneous/coconut-rhinoceros-beetle}.
+
+I maintain a bibliographic database of CRB-related journal articles at \url{http://guaminsects.myspecies.info/crb_biblio} andresearch results are made available as on-line technical reports at \url{http://guaminsects.net/anr/crb_tech_reports}.
+
 \item \textbf{Project Database. }Trapping data from a network of about 1200
 traps, detections of CRB grubs or adults, and observations of CRB
 defoliation and bore holes are entered daily into a web-based georeferenced
@@ -241,22 +294,35 @@ accessible from a web page at \url{http://www.guaminsects.net/anr/content/public
 Links on this page enable the user to view trap catch data as a spatiotemporal
 display using a Google Earth animation or a chart of monthly totals.
 I use this system to produce monthly surveillance reports. 
-\item \textbf{Scientific/technical Support.} I do applied research in support
-of the Guam CRB Eradication Project. Results of this research is provided
-in a series of technical reports. 
+
 \item \textbf{Collaboration.} I have formed two collaborative research groups
-to do applied research aimed at controling CRB damage. Dr. Sean Marshall
+to do applied research aimed at controlling CRB damage. Dr. Sean Marshall
 and Dr. Trevor Jackson at AgResearch New Zealand collaborate with
 me on biological control using oryctes nudivirus (OrNV) and CRB population
 genetics. Dr. Matthew Siderhurst and Dr. Eric Jang of USDA-ARS-PBARC
-collaborate with me on CRB trap improvement. 
+collaborate with me on CRB trap improvement and CRB behavior. 
 \end{enumerate}
 
-\subsection{Impediments}
+\subsection{Impediment}
 \begin{itemize}
 \item My heavy workload does not permit enough time to prepare research
 results for publication in scientific journals.
 \end{itemize}
+
+\subsection{\label{sub:Hawaii CRB}Support for the Hawaii Coconut Rhinoceros Beetle Eradication Project}
+
+In December 2013, an infestation of CRB was detected on Hickam Air
+Force Base on Oahu. Roland Quitugua and myself were recruited as subject
+matter experts and spent a week in Honolulu advising an incident command
+system (ICS) team set up by APHIS. Later, we were both added to a
+national technical working group (TWG) for CRB. I built and maintain
+an online, full-text bibliographic for use by the TWG at \url{http://guaminsects.myspecies.info/CRB_biblio}.
+
+Frequent requests for scientific/technical information from the ICS,
+TWG and Hawaii Department of Agriculture (several queries per week)
+has significantly increased my workload over the past several months.
+
+Early in 2015, the directors of the Western IPM Center at UC Davis asked me to help organize a meeting to prioritize applied research needs for development of CRB IPM. I co-authored an agenda and attendance list with Arnold Hara and Roland Quitugua. The meeting took place at the Hawaii Department of Agriculture on April 3, 2015 and was chaired by WIPM Center Director Kassim Al-Khatib.
 
 \section{Western Plant Diagnostics Network}
 
@@ -266,6 +332,21 @@ Training workshops, and organizes identification workshops for important
 pest groups. As coordinator, I am required to organize First Detector
 Training workshops, attend monthly conference calls, attend annual
 meetings, and provide reports.
+WPDN publishes newsletters for First Detectors, including the \href{https://www.wpdn.org/ppd_newsletter_archive}{Pacific Pest Detector} to which I occasionally contribute (Table \ref{tab:PFD}).
+
+\begin{table}[h]
+\protect\caption{\label{tab:PFD}Contributions to the Pacific Pest Detector Newsletter}
+\centering{}%
+\begin{tabular}{cc}
+\hline 
+\href{https://www.wpdn.org/webfm_send/514}{December 2013} & coconut termite\tabularnewline
+\href{https://www.wpdn.org/webfm_send/511}{March 2014} & spotted cucumber beetle\tabularnewline
+\href{https://www.wpdn.org/webfm_send/511}{March 2014} & brown marmorated stink bug \tabularnewline
+\href{https://www.wpdn.org/webfm_send/514}{June 2014} & castor hairy caterpillar\tabularnewline
+\emph{In press} & Pacific Pests and Pathogens Apps\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
 
 \section{Guam Invasive Species Advisory Committee (GISAC)}
 
@@ -278,16 +359,17 @@ species detected on Guam.
 
 A wiki site which I built for for GISAC was quickly adopted by the
 Western Micronesia Regional Invasive Species Council at \url{http://guaminsects.net/gisac/index.php?title=Main_Page}.
-(Evidence 1.6)
 
 \section{Public Outreach (Guest lectures, presentations, interviews)}
 
 During the reporting period I was interviewed numerous times by newspaper
-reporters, radio talk show hosts, and television news reporters (Table
-\ref{outreachTable}). Most, but not all involved questions about
-the Guam coconut rhinoceros beetle eradication project. I produced
-several fact sheets and articles for public print media during my
-two years as extension entomologist year and also published a lot
+reporters, radio talk show hosts, and television news reporters. Most, but not all involved questions about
+the Guam coconut rhinoceros beetle eradication project. I helped to produce
+several fact sheets and articles for public print media. 
+
+\section{Public Outreach (Internet)}
+
+During the past decade I published a lot
 of content on various websites. I have evaluated several current technologies
 for building a web presence for the Agriculture and Natural Resources
 Unit and the Drupal content management system seems to be a good fit.
@@ -296,15 +378,17 @@ some documents private for internal use only. My print and online
 output are discussed in more detail in the Creative/Scholarly Activity
 section. 
 
-\section{Public Outreach (Internet)}
-
 I maintain a website for the the UOG Cooperative Extension Service's
 Agriculture and Natural Resources Program at \url{http://guaminsects.net/ANR}.
 I frequently post blog articles of public interest to this site (Table
-\ref{anrBlogTable}). I also maintain a website at \url{http://guaminsects.myspecies.info}
+\ref{blog-table}). I also maintain a website at \url{http://guaminsects.myspecies.info}
 which is intended to facilitate sharing information on insects in
-Micronesia. I frequently submit blog articles to this website which
-are of interest to entomologists (Table \ref{myspeciesBlogTable}). 
+Micronesia. I submit blog articles to this website which
+are more technical and are of interest to biologists. To see a list of my blog post on this site, visit \url{http://guaminsects.myspecies.info/blogs/aubrey-moore}. 
+
+Note that these blogs also contain posts containing information which is not intended for the public. These posts are shared with selected groups of clients and colleagues using a password authentication system. 
+
+\input{blog-table}
 
 \section{Regional Collaboration }
 
@@ -319,23 +403,10 @@ at these meetings.
 
 I am often contacted with requests for help with identifying pests
 from throughout Micronesia and suggesting solutions to the problems
-they cause. I expect this workload to increase because the number
-of practicing PhD level entomologists in Micronesia has dropped from
-9 to 3 within the last decade.
+they cause. This workload has increased because the number
+of practicing PhD-level entomologists in Micronesia has dropped from
+9 to 3 within the last two decades.
 
-\subsection{\label{sub:Hawaii CRB}Support for the Hawaii Coconut Rhinoceros
-Beetle Eradication Project}
-
-In December 2013, an infestation of CRB was detected on Hickam Air
-Force Base on Oahu. Roland Quitugua and myself were recruited as subject
-matter experts and spent a week in Honolulu advising an incident command
-system (ICS) team set up by APHIS. Later, we were both added to a
-national technical working group (TWG) for CRB. I built and maintain
-an online, full-text bibliographic for use by the TWG at \url{http://guaminsects.myspecies.info/CRB_biblio}.
-
-Frequent requests for scientific/technical information from the ICS,
-TWG and Hawaii Department of Agriculture (several queries per week)
-has significantly increased my workload over the past several months.
 
 \pagebreak{}
 
@@ -363,17 +434,17 @@ Guam Coconut Rhinoceros Beetle Project}
 \printbibliography[heading=none,	keyword=cfes2015, keyword=crbtechreport]
 \endgroup
 
-\section{Guam New Invasive Species Alerts}
+\section{Guam New Invasive Species Alerts} 
+\label{Guam New Invasive Species Alerts}
 
 \begingroup
 \let\clearpage\relax
 \printbibliography[heading=none,	keyword=cfes2015, keyword=gisa]
 \endgroup
 
-\section{\label{sec:Web-Sites-Designed}Web Sites Designed and Maintained
-by Me}
+\section{\label{sec:Web-Sites-Designed}Web Sites Designed and Maintained by Me}
 
-For the past five years, I have been searching for the ``right''
+For the past several years, I have been searching for the ``right''
 technology for providing on-line extension information. The features
 I want include:
 \begin{itemize}
@@ -472,121 +543,92 @@ had a better feature set for what I wanted to do.
 
 \section{Grants}
 
-My active and pending grants are listed in table \ref{tab:crb_grants})
-and table \ref{tab:Grants-other-than-CRB}. Fourteen support staff
-positions have been supported, partially of fully, from my grants
-during 2012 and 2013 (Table \ref{tab:Staff-support-by-my-grants}).
-Two of my recent grant proposals were not funded (Table \ref{tab:Unfunded-grant-proposals.}).
+During 2014 and 2015, I managed 8 grants totalling \$345,040 (listed below). These grants partially or fully supported 14 staff positions (Table \ref{tab:Staff-support-by-my-grants}).
 
-\subsection{US Forest Survey Program Review}
+\subsection{Support for the Guam Coconut Rhinoceros Beetle Eradication Project}
 
-During May 2014, officials from the US Forest Survey paid a visit
-to Guam to review performance on grants they have given to UoG over
-the past five years. A summary of my activities in support of these
-grants is available online at \url{http://guaminsects.net/anr/content/materials-forest-service-review-team}
+\begin{description}
+	\item[Funding Source] US Forest Service
+	\item[Amount] \$150,000
+	\item[End Date] 2015 Jun 30
+	\item[Description] The objective of this project its to develop  an integrated pest management (IPM) program for coconut rhinoceros beetle on Guam.
+	\item[Project Documents] \url{http://guaminsects.net/anr/content/crb-biocontrol-2013}
+\end{description}
 
-\pagebreak{}
+\subsection{Efficacy of Entomopathogenic Fungus for Biological Control of Coconut Rhinoceros Beetle (CRB) on Guam and DNA Profiling of Asia/Pacific CRB Populations with Respect to Virus Susceptibility
+}
+\begin{description}
+	\item[Funding Source] USDA-APHIS
+	\item[Amount] \$40,000
+	\item[End Date] 2015 Aug 31
+	\item[Description] This project has two objectives:
+	\begin{enumerate}
+		\item To measure the impact of \textit{Metarhizium majus}, green muscardine fungus (GMF), as a biological control agent for the Guam CRB population
+		\item To survey and map the extent of the Guam CRB genotype. This work is done in collaboration with Sean Marshall at AgResearch New Zealand.
+	\end{enumerate} 
+	\item[Project Documents] \url{http://guaminsects.net/anr/content/crb-biocontrol-2013}
+\end{description}
 
-\begin{table}[p]
-\protect\caption{\label{tab:crb_grants}Active and pending grants in support of the
-Guam Coconut Rhinoceros Beetle Eradication Project.}
+\subsection{Microscopes for UOG Extension Entomology Lab and Guam Customs and Quarantine Agency}
+\begin{description}
+	\item[Funding Source] USDA-APHIS
+	\item[Amount] \$80,000
+	\item[Description] Proposal submitted as a 2015 Farm Bill suggestion. However, APHIS decided to fund this equipment grant from AQI funds. Professional grade equipment including a Nikon stereozoom microscope, a Nikon compound microscope, a digital microscope camera, and camera control were delivered to UOG in June 2015. The grant also provided a stereozoom for the Guam Customs and Quarantine Agency. 
+\end{description}
 
-\centering{}%
-\begin{tabular}{>{\raggedright}p{5cm}>{\centering}p{3cm}>{\centering}p{3cm}>{\raggedleft}p{2cm}}
-\hline 
-Title &
-Source &
-Grant No.or UOG Account &
-Amount\tabularnewline
-\hline 
-\hline 
-Support for the Guam Coconut Rhinoceros Project  &
-USDA Forest Service &
-{\small{}11-DG-11052012-101} &
-\$227,000\tabularnewline
-Biological Control of the Coconut Rhinoceros Beetle &
-USDA APHIS &
-12-8515-1555-CA &
-\$40,000\tabularnewline
-Support for the Guam Coconut Rhinoceros Project  &
-USDA Forest Service &
-{\small{}11-DG-11052012-101} &
-\$150,000\tabularnewline
-Biological Control of the Coconut Rhinoceros Beetle {[}PENDING\} &
-USDA APHIS &
- &
-\$40,000\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
+\subsection{Establishment of Captive and Managed Populations of the Mariana Eight-spot Butterfly, \textit{Hypolimnas octocula marianensis}
+}
+\begin{description}
+	\item[Funding Source] USFWS via an MOU with GDOA-DAWR
+	\item[Amount] \$21,212
+	\item[End Date] 2015 Sep 30 (1 year no cost extension requested)
+	\item[Description] This project will investigate the feasability of rearing and breeding \textit{H. o. marianensis} and also in field sites where ungulates are excluded.
+	\item[Project Documents]  \url{http://guaminsects.net/anr/content/octocula} 
+\end{description}
 
-\pagebreak{}
+\subsection{Western Plant Diagnostic Network FY2015}
+\begin{description}
+	\item[Funding Source] UC Davis
+	\item[Amount] \$10,672
+	\item[End Date] 2015 Jun 30
+	\item[Description] WPDN provides first detector training and support of diagnosis of plant pests and pathogens. 
+	\item[Project Documents] \url{http://guaminsects.net/anr/content/wpdn-2014-15}
+\end{description}
 
-\begin{longtable}{>{\raggedright}p{2in}>{\centering}p{1.25in}>{\centering}p{1.25in}>{\raggedleft}p{0.75in}}
-\caption{\label{tab:Grants-other-than-CRB}Active and pending grants other
-than those supporting the Guam Coconut Rhinoceros Beetle Eradication
-Project.}
-\tabularnewline
-\endfirsthead
-\midrule 
-Title &
-Source &
-Grant No. or
+\subsection{Western Plant Diagnostic Network FY2016}
+\begin{description}
+	\item[Funding Source] UC Davis
+	\item[Amount] \$10,854
+	\item[End Date] 2016 Jun 30
+	\item[Description] WPDN provides first detector training and support of diagnosis of plant pests and pathogens. 
+\end{description}
 
-UOG Account &
-Amount\tabularnewline
-\midrule 
-National Plant Diagnostic Network (NPDN) &
-via UC Davis &
-201223902-09 &
-\$7,550\tabularnewline
-\midrule 
-National Plant Diagnostic Network (NPDN) {[}PENDING{]} &
-via UC Davis &
- &
-\$7,550\tabularnewline
-\midrule 
-Octocula conservation {[}PENDING{]} &
-USFWS via DAWR &
- &
-\$20,000\tabularnewline
-\bottomrule
-\end{longtable}
+\subsection{Guam Forest Insect Survey}
+\begin{description}
+	\item[Funding Source] NIFA-McIntire-Stennis
+	\item[Amount] \$12,302 per year
+	\item[End Date] 2018 Jun 30
+	\item[Description] The objective of the survey is to build a knowledge-base on insects associated
+with plants in Guam's forests. The survey will result in a reference collection of Guam's
+forest insects and a publicly available online database to facilitate sharing of specimen
+data, images and ecological associations among plants and insects.
+The knowledge base will be useful to natural resource managers responsible for maintaining the health of Guam's forests and to biologists trying to understand Guam's
+terrestrial ecosystems in the wake of major biological invasions.
+	\item[Project Documents] \url{http://guaminsects.net/anr/content/guam-forest-insect-survey}
+\end{description}
 
-\pagebreak{}
+\subsection{Detector Beetles: Radio-tracking Coconut Rhinoceros Beetles to Discover Breeding Sites}
+\begin{description}
+	\item[Funding Source] US Forest Service
+	\item[Amount] \$20,000 (additional \$20,000 pending)
+	\item[End Date] 2016 Apr 30
+	\item[Description] This project is a feasability study to see if CRB adults equipped with glue-on miniature radio transmitters can be tracked to cryptic breeding sites.
+	\item[Project Documents] \url{http://guaminsects.net/anr/content/detector-beetles}
+\end{description} 
 
-\begin{longtable}{>{\raggedright}p{2in}>{\centering}p{1.25in}>{\centering}p{1.25in}>{\raggedleft}p{0.75in}}
-\caption{\label{tab:Unfunded-grant-proposals.}Recent unfunded grant proposals.}
-\tabularnewline
-\midrule 
-Title &
-Source &
-Notes &
-Amount\tabularnewline
-\endfirsthead
-\midrule 
-Title &
-Source &
-Notes &
-Amount\tabularnewline
-\endhead
-\midrule 
-Guam Insect Biodiversity &
-USFWS via DAWR &
- &
-\$20,000\tabularnewline
-\midrule 
-Octocula conservation &
-USFWS &
- &
-\$18,000\tabularnewline
-\bottomrule
-\end{longtable}
-
-\pagebreak{}
-
+\begin{table}[h]
 \begin{longtable}{r>{\raggedright}p{5cm}}
-\caption{\label{tab:Staff-support-by-my-grants}Staff support by my grants.}
+\caption{\label{tab:Staff-support-by-my-grants}Staff support by my grants in 2014-2015.}
 \tabularnewline
 \endfirsthead
 \midrule 
@@ -620,20 +662,18 @@ Cris Crisostimo\tabularnewline
 Raymondo San Miquel\tabularnewline
 \bottomrule
 \end{longtable}
+\end{table}
 
 \chapter{University and Community Service}
 
-\section{Participation in the Good to Great Initiative}
-
 \section{Teaching }
+
+In addition to my job as an extension entomologist, I am required to teach a four credit course every year. My student evaluations are consistently above average (Tables \ref{tab:Student-evaluation-ag109} and \ref{tab:Student-evaluation-agbio345}).
 
 \subsection{AG-109 Insect World}
 
-I taught this course four times. My score on the student evaluations
-are consistently above average (Table \ref{tab:Student-evaluation}).
-
 \begin{table}[h]
-\protect\caption{\label{tab:Student-evaluation}Student evaluation for AG109, \emph{Insect World}.}
+\protect\caption{\label{tab:Student-evaluation-ag109}Student evaluation for AG109, \emph{Insect World}.}
 \centering{}%
 \begin{tabular}{cccc}
 \hline 
@@ -642,8 +682,8 @@ Term & My Evaluation & College Average & University Average\tabularnewline
 Fall 2009   & 3.659 & 3.565 & 3.552\tabularnewline
 Spring 2011 & 3.986 & 3.519 & 3.617\tabularnewline
 Spring 2012 & 3.863 & 3.570 & 3.612\tabularnewline
-Spring 2013 & na    & na    & na   \tabularnewline
-Fall 2014 	& na    & na    & na   \tabularnewline   
+Spring 2013 & 3.659 & 3.552 & 3.627\tabularnewline
+Fall 2014 	& 3.645 & 3.471 & 3.553\tabularnewline   
 \hline 
 \end{tabular}
 \end{table}
@@ -651,7 +691,7 @@ Fall 2014 	& na    & na    & na   \tabularnewline
 \subsection{AG/BIO-345 General Entomology}
 
 \begin{table}[h]
-\protect\caption{\label{tab:Student-evaluation}Student evaluation for AG/BIO-345, \emph{General Entomology}.}
+\protect\caption{\label{tab:Student-evaluation-agbio345}Student evaluation for AG/BIO-345, \emph{General Entomology}.}
 \centering{}%
 \begin{tabular}{cccc}
 \hline 
@@ -662,36 +702,22 @@ Fall 2013 & 3.875 & 3.522 & 3.586\tabularnewline
 \end{tabular}
 \end{table}
 
+
+\section{Service as a Reviewer}
+
+\begin{itemize}
+	\item I served as an external examiner and reviewed Maclean Vaqalo's PhD dissertation entitled \emph{Biology and ecology of \textit{Nisota basselae} on \textit{Abelmoschus manihot} Medicus in Solomon Islands} for the University of Queensland.
+	\item I reviewed the manual \emph{New Pest Response Guidelines for Coconut Rhinoceros Beetle} for USDA-APHIS.
+	\item I reviewed a scientific note for publication in the Proceedings of the Hawaiian Entomological Society.
+\end{itemize}
+
+
 \section{Music}
 
 As an amateur horn player I play regularly, and often very badly,
 with the Guam Symphony Orchestra and occasionally with the Guam Territorial
 Band. I have played for UOG graduations and for concerts arranged
-by the UOG music department. In spring 2013, I played in a horn quartet
-in a UOG Music Department recital.
-
-\section{Conference on Island Sustainability}
-
-I served on the planning committee for the Island Conference on Island
-Sustainability in 2010, 2011 and 2012.
-
-\section{Micronesia Biosecurity Plan}
-
-I have been involved with the Micronesia Biosecurity Plan (MBP) since
-its inception. The MBP is being developed to mitigate an expected
-increase in invasive species associated with the Guam military buildup.
-A first draft of the MBP was written by federal agencies supported
-by a \$2.7M grant from the Department of Defense (DoD). In January,
-2010, I made 2 presentations at an an MBP organizational meeting:
-\emph{Biological Invasion of Guam} and \emph{Invasive Insects on Guam.}
-In 2011, I assisted the UOG Center for Island Sustainability in securing
-a DoD cooperative agreement (CA) which provides \$1.1M to UOG to provide
-a peer review of the MBP and to develop an implementation plan. I
-was named as CoPI with Dr. Frank Camacho on the original CA, but I
-have resigned from this position to concentrate more on my entomological
-interests. However, I am still involved as a reviewer and I recently
-helped out by building a private, secure website to facilitate sharing
-information among thoe working on the MBP.
+by the UOG music department.
 
 \section{Collaboration on CESU Rare Butterfly and Snails Survey Grant}
 
@@ -705,14 +731,7 @@ camera traps.
 
 \section{Collaboration on Biocontrol of Cycad Aulacaspis Scale}
 
-I am working with Tom Marler on introduction of parasitoids for biocontrol
-of the \emph{Aulacaspis yasumatsui}.
-
-\section{Collaboration on EPSCOR Proposal}
-
-I have submitted many ideas to be incorported into the EPSCOR proposal.
-I spent one and a half days at the PACSTEM meeting at the Hyatt discussing
-some of these ideas with colleagues.
+I am working with Tom Marler on introduction of parasitoids for biocontrol of the \emph{Aulacaspis yasumatsui}.
 
 \section{University Technical Advisory Committee}
 
@@ -722,6 +741,6 @@ Applied Sciences.
 \section{Undergraduate Curriculum Review Committee (UCRC)}
 
 In the April 2013 Faculty Elections, I was elected to serve on the
-UCRC.
+UCRC. I served for two years on this committee, 2013-14, and 2014-15.
 
 \end{document}
